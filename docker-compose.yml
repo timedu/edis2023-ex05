@@ -5,17 +5,17 @@ services:
   rqlite_1:
     command: -http-addr rqlite_1:4001 -raft-addr rqlite_1:4002
     image: rqlite/rqlite:7.21.4
-    profiles: [rqlite]
+    # profiles: [rqlite]
 
   rqlite_2:
     command: -http-addr rqlite_2:4001 -raft-addr rqlite_2:4002 -join http://rqlite_1:4001
     image: rqlite/rqlite:7.21.4
-    profiles: [rqlite]
+    # profiles: [rqlite]
     depends_on: [rqlite_1]
 
   rqlite_3:
     command: -http-addr rqlite_3:4001 -raft-addr rqlite_3:4002 -join http://rqlite_1:4001
     image: rqlite/rqlite:7.21.4
-    profiles: [rqlite]
+    # profiles: [rqlite]
     depends_on: [rqlite_1]
 
